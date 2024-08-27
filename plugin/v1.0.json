@@ -22,8 +22,8 @@
     },
     "entrypoints": {
       "type": "object",
-      "properties": {
-        "main": {
+      "patternProperties": {
+        "^[a-zA-Z0-9-_]+$": {
           "type": "object",
           "properties": {
             "Test": {
@@ -33,7 +33,7 @@
           "required": ["Test"]
         }
       },
-      "required": ["main"]
+      "additionalProperties": false
     }
   },
   "required": ["id", "version", "name", "entrypoints"]
