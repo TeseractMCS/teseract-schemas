@@ -29,8 +29,7 @@
             "Test": {
               "type": "string"
             }
-          },
-          "required": ["Test"]
+          }
         }
       },
       "additionalProperties": false
