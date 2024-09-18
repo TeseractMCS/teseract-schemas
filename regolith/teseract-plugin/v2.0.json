@@ -1,0 +1,56 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "format_version": {
+            "type": "number",
+            "default": 2
+        },
+        "id": {
+            "type": "string"
+        },
+        "version": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "authors": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "modules": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                // "pattern": "^(@[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+|[a-zA-Z0-9_-]+)@[0-9]+\\.[0-9]+\\.[0-9]+(-[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*)?(\\+[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*)?$",
+                "description": "A vanilla Minecraft module with name and version in node semver format."
+            }
+        },
+        "entryPoints": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "pattern": "^(\\./|\\.\\./)?([a-zA-Z0-9_-]+/)*[a-zA-Z0-9_-]+$",
+                "description": "Array of entry points, each entry point must be a relative path to a local file."
+            },
+            "minItems": 1,
+            "uniqueItems": true,
+            "description": "Array of relative file paths that serve as entry points."
+        }
+    },
+    "required": [
+        "format_version",
+        "id",
+        "version",
+        "name",
+        "authors",
+        "modules",
+        "entryPoints"
+    ]
+}
